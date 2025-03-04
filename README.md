@@ -47,3 +47,21 @@ $GOCACHEPROG="./go-cache-prog --verbose" go install fmt
 2025/03/04 10:50:14 Received request: ID=161, Command=close, ActionID=, OutputID=, BodySize=0
 2025/03/04 10:50:14 Gets: 160, GetMiss: 0
 ```
+
+- build example with build cache
+
+```
+$cd examples/helloworld
+$make
+GOCACHEPROG="../../go-cache-prog --verbose" go build
+2025/03/04 10:54:35 Using cache directory: /Users/tonybai/.gocacheprog
+2025/03/04 10:54:35 Received request: ID=1, Command=get, ActionID=7c1950a92d55fae91254e8923f7ea4cdfd2ce34953bcf2348ba851be3e2402a1, OutputID=, BodySize=0
+2025/03/04 10:54:35 Received request: ID=2, Command=put, ActionID=7c1950a92d55fae91254e8923f7ea4cdfd2ce34953bcf2348ba851be3e2402a1, OutputID=43b1c1a308784cd610fda967d781d3c5ccfd4950263df98d18a2ddb2dd218f5a, BodySize=251
+2025/03/04 10:54:35 Put request: ID=2, Actual BodyLen=339
+2025/03/04 10:54:35 Received request: ID=3, Command=get, ActionID=90c776cb58a3c3a99b5622344df5bc959fd2b90f299b40ae21ec6ccf16c77a23, OutputID=, BodySize=0
+
+... ...
+2025/03/04 10:54:35 Received request: ID=165, Command=close, ActionID=, OutputID=, BodySize=0
+2025/03/04 10:54:35 Gets: 163, GetMiss: 1
+```
+
