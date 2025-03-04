@@ -2,6 +2,10 @@
 
 An implementation of custom Go build cache program.
 
+## go version dependency
+
+go >= 1.24.0
+
 ## build
 
 ```
